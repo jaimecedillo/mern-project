@@ -1,7 +1,9 @@
 import React from 'react';
 import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
-import { EmailRounded, LockRounded } from "@material-ui/icons"
-const Login = () => {
+import { AccountCircle, LockRounded, EmailRounded} from "@material-ui/icons"
+
+
+const Signup = () => {
 
     return (
         <div>
@@ -20,17 +22,14 @@ const Login = () => {
                     <div />
                     <div style={{ display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300 }}>
                         <Grid container justify="center">
-                            <h1>Login</h1>
+                            <h1>Sign Up</h1>
                         </Grid>
+                        <TextField label="Username" margin="normal" InputProps={{ startAdornment: <InputAdornment position="start"><AccountCircle /></InputAdornment> }} />
                         <TextField label="Email" margin="normal" InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
                         <TextField label="Password" margin="normal" type ="password"  id="standard-password-input" autoComplete="current-password" InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
                         <div style={{ height: 20 }} />
                         <Button color="primary" variant="contained">
-                            Log in
-                        </Button>
-                        <div style={{ height: 20 }} />
-                        <Button color="primary" variant="contained">
-                            Create Account
+                            Submit
                         </Button>
 
                     </div>
@@ -41,4 +40,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signup;
