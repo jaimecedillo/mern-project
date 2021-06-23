@@ -9,7 +9,7 @@ const Login = () => {
                 <Grid item xs={12} sm={6}>
             
                     <img
-                        src="https://blog.intercomassets.com/blog/wp-content/uploads/2019/05/INTERCOME_WELCOME_PAGE_061019_compressed-1800x840.jpg.optimal.jpg"
+                        src="https://www.webwisewording.com/wp-content/uploads/aaron-burden-AvqpdLRjABs-unsplash.jpg"
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         alt="log in page image"
                     />
