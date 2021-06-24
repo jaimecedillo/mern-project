@@ -3,6 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import BatteryChargingFullIcon from '@material-ui/icons/BatteryChargingFull';
+import BathtubIcon from '@material-ui/icons/Bathtub';
+import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
+import DriveEtaIcon from '@material-ui/icons/DriveEta';
+
 
 const useStyles = makeStyles({
   root: {
@@ -27,9 +33,9 @@ const CategoryMenu = () => {
         textColor="primary"
         centered
       >
-        <Tab label="Category 1" />
-        <Tab label="Category 2" />
-        <Tab label="Category 3" />
+        <Tab icon={<AcUnitIcon />} label="AC and Heating" />
+        <Tab icon={<BathtubIcon />} label="Plumbing" />
+        <Tab icon={<DriveEtaIcon />} label="Mechanic" />
       </Tabs>
     </Paper>
   );
