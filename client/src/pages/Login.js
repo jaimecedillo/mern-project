@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
 import { EmailRounded, LockRounded } from "@material-ui/icons"
-const Login = () => {
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
+const Login = (props) => {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN_USER);
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
+  
+    // submit form
+    const handleFormSubmit = async event => {
+      event.preventDefault();
+  
+      try {
+        const { data } = await login({
+          variables: { ...formState }
+        });
+  
+        Auth.login(data.login.token);
+      } catch (e) {
+        console.error(e);
+      }
+    };
     return (
         <div>
             <Grid container style={{ minHeight: '100vh' }}>
@@ -22,17 +51,19 @@ const Login = () => {
                         <Grid container justify="center">
                             <h1>Login</h1>
                         </Grid>
-                        <TextField label="Email" margin="normal" InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
-                        <TextField label="Password" margin="normal" type ="password"  id="standard-password-input" autoComplete="current-password" InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
+                        <form onSubmit={handleFormSubmit}>
+                        <TextField label="Email" margin="normal" value={formState.email} onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
+                        <TextField label="Password" margin="normal" type ="password"  id="standard-password-input" autoComplete="current-password"  value={formState.password} onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
                         <div style={{ height: 20 }} />
-                        <Button color="primary" variant="contained">
-                            Log in
+                        <Button color="primary" variant="contained" type='submit'>
+                            Login
                         </Button>
                         <div style={{ height: 20 }} />
-                        <Button color="primary" variant="contained">
+                        <Button color="primary" variant="contained" type='sign-up'  href="/signup">
                             Create Account
                         </Button>
-
+                        </form>
+            {error && <div>Login failed</div>}
                     </div>
                     <div />
                 </Grid>
