@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-
+// import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     menuButton: {
@@ -33,22 +33,20 @@ const Navbar = () => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    className={classes.menuButton}
-                >
-                    <MenuIcon />
-                </IconButton>
+          
                 <Typography variant="h4" className={classes.title}>
+                {/* <Link to="/"> */}
                     Jacks of All Trades
+                    {/* </Link> */}
                 </Typography>
                 <Button color="inherit" onClick={handleOpen}>
                     Signup
                 </Button>
                 <Button color="inherit" onClick={handleOpen}>
                     Log in
+                </Button>
+                <Button color="inherit" onClick={handleOpen}>
+                    Donate
                 </Button>
             </Toolbar>
 
