@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const { SChema } = mongoose;
 const bcrypt = require('bcrypt');
-const Quote = require('./Quote');
 
-const userSchema = new Schema({
+const contractorSChema = new Schema({
     firstName: {
         type: String,
         required: true,
@@ -23,12 +22,15 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-        minlength: 7 
+        minlength: 7
     },
-    quote: [Quote.schema]
+    workType: {
+        type: String,
+        required: true
+    }
 });
 
-userSchema.pre('save', async function(next) {
+contractorSChema.pre('save', async function(next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
@@ -37,10 +39,10 @@ userSchema.pre('save', async function(next) {
     next();
 });
 
-userSchema.methods.isCorrectPassword = async function(password) {
-    return await bcrypt.compare(password, this.password); 
+contractorSChema.method.isCorrectPassword = async function(password) {
+    return await bcyrpt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const Contractor = mongoose.model('Contractor', contractorSChema);
 
-module.exports = User;
+module.exports = Contractor;
