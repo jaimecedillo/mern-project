@@ -18,61 +18,91 @@ db.once('open', async () => {
 
     const contractor = await Contractor.insertMany([
         {
-            name: 'Obi-Wan Kenobi',
+            firstName: 'Obi-Wan',
+            lastName: 'Kenobi',
+            email: 'obi@testemail.com',
+            password: 'password1321564',
             workType: 'Plumber',
             category: categories[0]._id,
             quote: ''
         },
         {
-            name: 'Darth Maul',
+            firstName: 'Darth',
+            lastName: 'Maul',
+            email: 'darth@testemail.com',
+            password: 'password132465',
             workType: 'Plumber',
             category: categories[0]._id,
             quote: ''
         },
         {
-            name: 'Darth Sidious',
+            firstName: 'Darth',
+            lastName: 'Sidious',
+            email: 'sidious@testemai.com',
+            password: 'password',
             workType: 'Yard Work',
             category: categories[1]._id,
             quote: ''
         },
         {
-            name: 'Qui-Gon Jinn',
+            firstName: 'Qui-Gon',
+            lastName: 'Jinn',
+            email: 'qcj@testemail.com',
+            password: 'pass132word',
             workType: 'Yard Work',
             category: categories[1]._id,
             quote: ''
         },
         {
-            name: 'Sheev Palpatine',
+            firstName: 'Sheev',
+            lastName: 'Palpatine',
+            email: 'emp@testemail.com',
+            password: 'password159',
             workType: 'Electrical',
             category: categories[2]._id,
             quote: ''
         },
         {
-            name: 'Han Solo',
+            firstName: 'Han',
+            lastName: 'Solo',
+            email: 'solo@testemail.com',
+            password: 'password13223',
             workType: 'Electrical',
             category: categories[2]._id,
             quote: ''
         },
         {
-            name: 'Lando Calrissian',
+            firstName: 'Lando',
+            lastName: 'Calrissian',
+            email: 'claris@testemail.com',
+            password: 'password123156',
             workType: 'Refrigeration',
             category: categories[3]._id,
             quote: ''
         },
         {
-            name: 'Poe Dameron',
+            firstName: 'Poe',
+            lastName: 'Dameron',
+            email: 'poe@testemail.com',
+            password: 'password1984',
             workType: 'Refrigeration',
             category: categories[3]._id,
             quote: ''
         },
         {
-            name: 'Boba Fett',
+            firstName: 'Boba',
+            lastName: 'Fett',
+            email: 'fettman@testemail.com',
+            password: 'password135210',
             workType: 'Heating/AC',
             category: categories[4]._id,
             quote: ''
         },
         {
-            name: 'Kylo Ren',
+            firstName: 'Kylo',
+            lastName: 'Ren',
+            email: 'kylo@testemail.com',
+            password: 'password13510',
             workType: 'Heating/AC',
             category: categories[4]._id,
             quote: ''
