@@ -5,12 +5,15 @@ import ProductMenu from "../components/CategoryMenu";
 
 const Home = () => {
     return (
+        <div>
+        <ProductMenu />
         <div className="container">
             <Grid container spacing={8}>
                 <Grid className="ProdectMenu">
-                    <ProductMenu />
+                
                 </Grid>
             </Grid>
+        </div>
         </div>
     );
 };
