@@ -10,6 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { withRouter } from 'react-router-dom';
+import Donate from '../Donate'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,15 @@ const Navbar = props => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const [modalOpen, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -79,11 +89,11 @@ const Navbar = props => {
                   open={open}
                   onClose={() => { setAnchorEl(null) }}
                 >
-                  <MenuItem onClick={() => { handleMenuClick('/') }}>Home</MenuItem>
+                  <MenuItem  onClick={() => { handleMenuClick('/') }}>Home</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/login') }}>Login</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/signup') }}>Signup</MenuItem>
-                  <MenuItem onClick={() => { handleMenuClick('/donate') }}>Donate</MenuItem>
+                  <MenuItem color="primary"><Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></MenuItem>
                 </Menu>
               </>
             ) : (
@@ -92,7 +102,7 @@ const Navbar = props => {
                 <Button onClick={() => { handleMenuClick('/login') }} color="inherit">Login</Button>
                 <Button onClick={() => { handleMenuClick('/') }} color="inherit">Logout</Button>
                 <Button onClick={() => { handleMenuClick('/signup') }} color="inherit">Singup</Button>
-                <Button onClick={() => { handleMenuClick('/donate') }} color="inherit">Donate</Button>
+                <Button> <Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></Button>
               </div>
             )
 
