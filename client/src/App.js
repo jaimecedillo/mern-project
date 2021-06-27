@@ -11,8 +11,9 @@ function App() {
     <Router>
     <div>
       <Navbar />
+      </div>
       <Home />
-    </div>
+  
     </Router>
   );
 }
