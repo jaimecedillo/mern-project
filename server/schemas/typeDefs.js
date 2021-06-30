@@ -17,9 +17,11 @@ type Auth {
 }
 
 type Query {
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
     user: User
-   
-}
+  }
 
 
 type Mutation {
@@ -29,5 +31,5 @@ type Mutation {
 
 
 `
-// categories: [ Category ]
+ categories: [ Category ]
 module.exports = typeDefs
