@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
 import { EmailRounded, LockRounded } from "@material-ui/icons"
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN);
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,11 +27,26 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState }
       });
+      const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+      const token = mutationResponse.data.login.token;
 
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
+
+  // const handleFormSubmit = async event => {
+  //   event.preventDefault();
+  //   try {
+  //     const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+  //     const token = mutationResponse.data.login.token;
+  //     Auth.login(token);
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // };
+
+
   };
   return (
     <div>

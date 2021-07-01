@@ -10,7 +10,8 @@ import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { withRouter } from 'react-router-dom';
-import Donate from '../Donate'
+import Donate from '../Donate';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,7 +91,7 @@ const Navbar = props => {
                   onClose={() => { setAnchorEl(null) }}
                 >
                   <MenuItem  onClick={() => { handleMenuClick('/') }}>Home</MenuItem>
-                  <MenuItem onClick={() => { handleMenuClick('/login') }}>Login</MenuItem>
+                  <Link onClick={() => { handleMenuClick('/login') }} to="/login" >Login</Link>
                   <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/signup') }}>Signup</MenuItem>
                   <MenuItem color="primary"><Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></MenuItem>
