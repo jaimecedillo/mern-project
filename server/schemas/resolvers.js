@@ -1,52 +1,42 @@
-const { User, Category, Contractor, Quote } = require("../models")
-const {signToken,authMiddleware} = require ("../utils/auth")
-const { AuthenticationError} = require("apollo-server-express")
+const { User, Category, Contractor } = require("../models")
+const { signToken, authMiddleware } = require("../utils/auth")
+const { AuthenticationError } = require("apollo-server-express")
 const resolvers = {
-    Query: { 
+    Query: {
         categories: async () => {
-        return await Category.find();
-    },
-    contractors: async (parent, { category, name }) => {
-        const params = {};
-  
-        if (category) {
-          params.category = category;
-        }
-  
-        if (name) {
-          params.name = {
-            $regex: name
-          };
-        }
-  
-        return await Contractor.find(params).populate('category');
-    },
-    Mutation:{
-        addUser: async(parent,args) => {
-            const user = await User.create (args)
-            const token = signToken(user)
-            return { user,token }
+            return await Category.find();
         },
-        updateUser: async (parent, args, context) => {
-            if (context.user) {
-              return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-            }
-      
-            throw new AuthenticationError('Not logged in');
-        },   
-        login: async(parent,args) => {
-            const user = await User.findOne ({email:args.email})
+        contractors: async () => {
+            return await Contractor.find();
+        },
+        user: async () => {
+            return await User.findById();
+        }
+    },
+    Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args)
+            const token = signToken(user)
+            return { user, token }
+        },
+        login: async (parent, args) => {
+            const user = await User.findOne({ email: args.email })
             if (!user) {
                 throw new AuthenticationError("could not find user")
             }
-            const correctPassword = await user.isCorrectPassword (args.password)
+            const correctPassword = await user.isCorrectPassword(args.password)
             if (!correctPassword) {
                 throw new AuthenticationError("could not find password")
             }
             const token = signToken(user)
-            return { user, token}
-        }
+            return { user, token }
+        },
+        addContractor: async (parent, args) => {
+            const contractor = await Contractor.create(args)
+            const token = signToken(contractor)
+            return { user, token }
+        },
     }
-};
+}
 
 module.exports = resolvers;
