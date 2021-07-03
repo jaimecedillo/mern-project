@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/react-hooks';
 import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
 import { EmailRounded, LockRounded } from "@material-ui/icons"
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN);
+  
   // update state based on form input changes
-  const handleChange = (event) => {
+const handleChange = event => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
+
 
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-
     try {
-      const { data } = await login({
-        variables: { ...formState }
-      });
-
-      Auth.login(data.login.token);
+      const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
     } catch (e) {
-      console.error(e);
+      console.log(e)
     }
   };
   return (
@@ -45,15 +43,15 @@ const Login = (props) => {
 
 
         </Grid>
-        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }}>
+        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }} onSubmit={handleFormSubmit}>
           <div />
           <div style={{ display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300 }}>
-            <Grid container justify="center">
+            <Grid container justify="center" >
               <h1>Login</h1>
             </Grid>
-            <form onSubmit={handleFormSubmit}>
-              <TextField label="Email" margin="normal" value={formState.email} onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
-              <TextField label="Password" margin="normal" type="password" id="standard-password-input" autoComplete="current-password" value={formState.password} onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
+           
+              <TextField label="Email" name="email" type="email" id="email"margin="normal"  onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
+              <TextField label="Password" name="password" type="password"margin="normal" type="password" id="standard-password-input" autoComplete="current-password" onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
               <div style={{ height: 20 }} />
               <Button color="primary" variant="contained" type='submit'>
                 Login
@@ -62,7 +60,7 @@ const Login = (props) => {
               <Button color="primary" variant="contained" type='sign-up' href="/signup">
                 Create Account
               </Button>
-            </form>
+         
             {error && <div>Login failed</div>}
           </div>
           <div />

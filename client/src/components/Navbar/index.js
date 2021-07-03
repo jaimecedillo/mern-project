@@ -23,8 +23,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   [theme.breakpoints.up('lg')]: {
-    
+  },
+  photo: {
+    height: "45px",
+    width: "45px",
+    margin:"2px"
   }
+
  
 }));
 
@@ -65,7 +70,7 @@ const Navbar = props => {
         <Toolbar>
 
           <Typography variant="h6" className={classes.title} onClick={() => { handleMenuClick('/') }}>
-            Jacks of all Trades
+          <img src="https://static8.depositphotos.com/1030387/806/v/450/depositphotos_8069175-stock-illustration-handyman.jpg" alt="loading" className={classes.photo}/> Jacks of all Trades
           </Typography>
           <div>
             {isMobile ? (
