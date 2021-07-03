@@ -33,6 +33,7 @@ const handleChange = event => {
   return (
     <div>
       <Grid container style={{ minHeight: '100vh' }}>
+       
         <Grid item xs={12} sm={6}>
 
           <img
@@ -43,15 +44,22 @@ const handleChange = event => {
 
 
         </Grid>
-        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }} onSubmit={handleFormSubmit}>
-          <div />
+        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }}>
+        
+           <form onSubmit={handleFormSubmit}>
           <div style={{ display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300 }}>
             <Grid container justify="center" >
               <h1>Login</h1>
             </Grid>
-           
+            
               <TextField label="Email" name="email" type="email" id="email"margin="normal"  onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><EmailRounded /></InputAdornment> }} />
               <TextField label="Password" name="password" type="password"margin="normal" type="password" id="standard-password-input" autoComplete="current-password" onChange={handleChange} InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }} />
+                  
+              {
+          error ? <div>
+            <p className="error-text" >The provided credentials are incorrect</p>
+          </div> : null
+        }
               <div style={{ height: 20 }} />
               <Button color="primary" variant="contained" type='submit'>
                 Login
@@ -60,10 +68,11 @@ const handleChange = event => {
               <Button color="primary" variant="contained" type='sign-up' href="/signup">
                 Create Account
               </Button>
-         
-            {error && <div>Login failed</div>}
+     
+       
           </div>
-          <div />
+         
+        </form>
         </Grid>
       </Grid>
     </div>

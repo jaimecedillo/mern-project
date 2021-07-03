@@ -67,7 +67,7 @@ const handleInputChange =  (event)=> {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Thanks for your donation</h2>
+      <h2 id="simple-modal-title">Thanks for your donation 🙏</h2>
       <FormControl fullWidth className={classes.margin}>
           <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
           <Input

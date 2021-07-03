@@ -6,6 +6,7 @@ import ApolloClient from 'apollo-boost';
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar"
+import NoMatch from "./pages/Nomatch";
 import Home from "./pages/Home"
 import './App.css';
 
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route component={NoMatch} />
         </Switch>
       </Router>
     </ApolloProvider>

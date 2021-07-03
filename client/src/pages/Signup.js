@@ -45,8 +45,9 @@ const Signup = () => {
 
 
         </Grid>
-        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }} onSubmit={handleFormSubmit}>
-          <div />
+        <Grid container item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }}>
+          
+        <form onSubmit={handleFormSubmit}>
           <div style={{ display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300 }}>
             <Grid container justify="center">
               <h1>Sign Up</h1>
@@ -63,7 +64,7 @@ const Signup = () => {
           
             {error && <div>Sign up failed</div>}
           </div>
-          <div />
+          </form>
         </Grid>
       </Grid>
     </div>
