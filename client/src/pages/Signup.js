@@ -61,7 +61,10 @@ const Signup = () => {
               <Button color="primary" variant="contained" type='submit'>
                 Submit
               </Button>
-          
+              <div style={{ height: 20 }} />
+              <Button color="primary" variant="contained" type='sign-up' href="/login">
+              ← Go to Login
+              </Button>
             {error && <div>Sign up failed</div>}
           </div>
           </form>
