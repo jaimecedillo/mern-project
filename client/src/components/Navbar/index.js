@@ -96,8 +96,8 @@ const Navbar = props => {
                 >
                   <MenuItem  onClick={() => { handleMenuClick('/') }}>Home</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/login') }}>Login</MenuItem>
-                  <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/signup') }}>Signup</MenuItem>
+                  <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem color="primary"><Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></MenuItem>
                 </Menu>
               </>
@@ -105,8 +105,8 @@ const Navbar = props => {
               <div>
                 <Button onClick={() => { handleMenuClick('/') }} color="inherit">Home</Button>
                 <Button onClick={() => { handleMenuClick('/login') }} color="inherit">Login</Button>
-                <Button onClick={() => { handleMenuClick('/') }} color="inherit">Logout</Button>
                 <Button onClick={() => { handleMenuClick('/signup') }} color="inherit">Singup</Button>
+                <Button onClick={() => { handleMenuClick('/') }} color="inherit">Logout</Button>
                 <Button> <Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></Button>
               </div>
             )
