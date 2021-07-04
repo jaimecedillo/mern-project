@@ -24,8 +24,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   [theme.breakpoints.up('lg')]: {
-    
+  },
+  photo: {
+    height: "45px",
+    width: "45px",
+    margin:"2px"
   }
+
  
 }));
 
@@ -66,7 +71,7 @@ const Navbar = props => {
         <Toolbar>
 
           <Typography variant="h6" className={classes.title} onClick={() => { handleMenuClick('/') }}>
-            Jacks of all Trades
+          <img src="https://static8.depositphotos.com/1030387/806/v/450/depositphotos_8069175-stock-illustration-handyman.jpg" alt="loading" className={classes.photo}/> Jacks of all Trades
           </Typography>
           <div>
             {isMobile ? (
@@ -92,17 +97,17 @@ const Navbar = props => {
                 >
                   <MenuItem  onClick={() => { handleMenuClick('/') }}>Home</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/login') }}>Login</MenuItem>
-                  <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem onClick={() => { handleMenuClick('/signup') }}>Signup</MenuItem>
+                  <MenuItem onClick={() => { handleMenuClick('/') }}>Logout</MenuItem>
                   <MenuItem color="primary"><Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></MenuItem>
                 </Menu>
               </>
             ) : (
               <div>
                 <Button onClick={() => { handleMenuClick('/') }} color="inherit">Home</Button>
-                <Button onClick={() => { handleMenuClick('../../pages/login') }} color="inherit">Login</Button>
-                <Button onClick={() => { handleMenuClick('/') }} color="inherit">Logout</Button>
+                <Button onClick={() => { handleMenuClick('/login') }} color="inherit">Login</Button>
                 <Button onClick={() => { handleMenuClick('/signup') }} color="inherit">Singup</Button>
+                <Button onClick={() => { handleMenuClick('/') }} color="inherit">Logout</Button>
                 <Button> <Donate  handleOpen={handleOpen} handleClose={handleClose}  open={modalOpen} /></Button>
               </div>
             )
