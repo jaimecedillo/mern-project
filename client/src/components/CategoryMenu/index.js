@@ -531,7 +531,7 @@ const CategoryMenu = () => {
                   <CardContent>
                     <Typography paragraph>Phone:</Typography>
                     <Typography paragraph>
-                      (801) 326 8755
+                      (801) 326 8555
                     </Typography>
                     <Typography paragraph>
                       Email:
