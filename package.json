@@ -21,9 +21,7 @@
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
     "if-env": "^1.0.4",
-    "nodemon": "^2.0.9",
-    "express":"*",
-    "body-parser":"*"
+    "nodemon": "^2.0.9"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
