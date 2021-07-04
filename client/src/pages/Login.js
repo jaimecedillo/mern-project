@@ -4,6 +4,7 @@ import { Grid, TextField, Button, InputAdornment } from '@material-ui/core';
 import { EmailRounded, LockRounded } from "@material-ui/icons"
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -29,6 +30,19 @@ const handleChange = event => {
     } catch (e) {
       console.log(e)
     }
+
+  // const handleFormSubmit = async event => {
+  //   event.preventDefault();
+  //   try {
+  //     const mutationResponse = await login({ variables: { email: formState.email, password: formState.password } })
+  //     const token = mutationResponse.data.login.token;
+  //     Auth.login(token);
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // };
+
+
   };
   return (
     <div>

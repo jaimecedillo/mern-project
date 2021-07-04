@@ -10,7 +10,8 @@ import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { withRouter } from 'react-router-dom';
-import Donate from '../Donate'
+import Donate from '../Donate';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
