@@ -29,10 +29,10 @@ type Auth {
 }
 
 type Query {
-    user: User
+    categories: Category
     contractor: Contractor
-    categories: [Category]
-}
+    user: User
+
 
 type Mutation {
     addUser(firstName:String!, lastName:String!, email:String!, password:String!):Auth
@@ -43,5 +43,5 @@ type Mutation {
 }
 
 `
-// categories: [ Category ]
+ 
 module.exports = typeDefs

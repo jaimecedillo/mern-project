@@ -1,5 +1,6 @@
+
 const { User, Category, Contractor } = require("../models")
-const { signToken, authMiddleware } = require("../utils/auth")
+const { signToken } = require("../utils/auth")
 const { AuthenticationError } = require("apollo-server-express")
 const resolvers = {
     Query: {
