@@ -6,7 +6,7 @@ const resolvers = {
         categories: async () => {
             return await Category.find();
         },
-        contractors: async () => {
+        contractor: async () => {
             return await Contractor.find();
         },
         user: async () => {
