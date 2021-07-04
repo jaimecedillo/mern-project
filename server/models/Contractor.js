@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 const contractorSChema = new Schema({
     firstName: {
@@ -40,7 +40,7 @@ contractorSChema.pre('save', async function(next) {
 });
 
 contractorSChema.method.isCorrectPassword = async function(password) {
-    return await bcyrpt.compare(password, this.password);
+    return await bcryptjs.compare(password, this.password);
 };
 
 const Contractor = mongoose.model('Contractor', contractorSChema);
