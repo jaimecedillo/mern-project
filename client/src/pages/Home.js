@@ -6,9 +6,9 @@ const Home = () => {
     return (
         <>
             <CategoryMenu />
-            <div>
+            {/* <div>
             <ContractorList />
-            </div>
+            </div> */}
 
         </>
 
