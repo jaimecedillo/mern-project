@@ -456,7 +456,7 @@ const CategoryMenu = () => {
               <Card className={classes.root} variant="outlined">
                 <CardHeader className={classes.header}
 
-                  title="Kanan Jarrus"
+                  title="Baby Yoda"
                   subheader="Plumber"
                 />
                 <CardMedia
