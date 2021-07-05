@@ -456,7 +456,7 @@ const CategoryMenu = () => {
               <Card className={classes.root} variant="outlined">
                 <CardHeader className={classes.header}
 
-                  title="Kanan Jarrus"
+                  title="Baby Yoda"
                   subheader="Plumber"
                 />
                 <CardMedia
@@ -531,7 +531,7 @@ const CategoryMenu = () => {
                   <CardContent>
                     <Typography paragraph>Phone:</Typography>
                     <Typography paragraph>
-                      (801) 326 8755
+                      (801) 326 8555
                     </Typography>
                     <Typography paragraph>
                       Email:

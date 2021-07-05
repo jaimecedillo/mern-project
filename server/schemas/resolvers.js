@@ -7,9 +7,9 @@ const resolvers = {
         categories: async () => {
             return await Category.find();
         },
-        contractor: async () => {
-            return await Contractor.find();
-        },
+        // contractor: async () => {
+        //     return await Contractor.find();
+        // },
         user: async () => {
             return await User.findById();
         }
@@ -32,11 +32,11 @@ const resolvers = {
             const token = signToken(user)
             return { user, token }
         },
-        addContractor: async (parent, args) => {
-            const contractor = await Contractor.create(args)
-            const token = signToken(contractor)
-            return { user, token }
-        },
+        // addContractor: async (parent, args) => {
+        //     const contractor = await Contractor.create(args)
+        //     const token = signToken(contractor)
+        //     return { user, token }
+        // },
     }
 }
 
