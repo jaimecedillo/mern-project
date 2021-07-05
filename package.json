@@ -2,9 +2,12 @@
   "name": "mern-project",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "14.16.0"
+  },
   "main": "server/server.js",
   "scripts": {
-    "start": "cd server && node server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -18,10 +21,10 @@
   "dependencies": {
     "@apollo/client": "^3.3.20",
     "@apollo/react-hooks": "^4.0.0",
+    "bcryptjs": "^2.4.3",
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
-    "if-env": "^1.0.4",
-    "nodemon": "^2.0.9"
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",

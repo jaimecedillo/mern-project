@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const Quote = require('./Quote');
 
 const userSchema = new Schema({
@@ -38,7 +38,7 @@ userSchema.pre('save', async function(next) {
 });
 
 userSchema.methods.isCorrectPassword = async function(password) {
-    return await bcrypt.compare(password, this.password); 
+    return await bcryptjs.compare(password, this.password); 
 };
 
 const User = mongoose.model('User', userSchema);
