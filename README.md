@@ -28,7 +28,7 @@ Here is a screen shot of the application:
 
 ![jacks-of-all-trades](https://user-images.githubusercontent.com/77599683/124376732-aa2fd080-dc65-11eb-9016-27ce5fc5eec8.png)
 
-This is depolyed with Heroku at: https://jacksofalltrades.herokuapp.com/
+This is depolyed with Heroku at: https://serene-kings-canyon-83018.herokuapp.com/
 
 ## Contributors
 
